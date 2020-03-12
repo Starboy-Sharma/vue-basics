@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+
+    <!-- js -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/vue"></script>
+
+    <style>
+        .is-crazy {
+            position: absolute;
+            transition: 0.3s ease all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--  Vue   -->
+    <section id="app" class="section container">
+
+        <!-- Counter -->
+        <h1 class="title">Counter!</h1>
+        <div class="box content has-text-centered">
+            <h1 class="title is-1">{{ count }}</h1>
+            <a class="button is-danger" v-on:click="incrementCounter"> Count Up </a>
+        </div>
+
+
+        <!-- crazy Buttons -->
+        <a
+         class="button is-info is-crazy"
+         :style="" 
+         @mouseenter=""> Catch me if you can </a>
+
+    </section>
+
+    <!-- our javascript -->
+    <script>
+
+        // With Vue
+
+        const app = new Vue({
+            el: '#app',
+
+            data: {
+                count: 0
+            },
+
+            methods: {
+                incrementCounter: function () {
+                    this.count++;
+
+                    // Reset Counter
+                    setTimeout(() => {
+                        if (this.count === 10) {
+                            alert("Counter is now reset");
+                            this.count = 0;
+                        }
+                    }, 1000);
+
+
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

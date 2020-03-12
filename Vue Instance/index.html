@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.css">
+
+    <!-- js -->
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+
+
+
+    <!--  Vue   -->
+    <section id="app" class="section container">
+
+        <p>
+            Name: {{ name }} <br>
+            Username: {{ username }} <br>
+            Email: {{ email }}
+        </p>
+
+        <input type="text" class="input" v-model.trim="text" placeholder="Type Your name">
+        <button class="button is-info" v-on:click="celeberate"> Let's Celeberate </button>
+
+    </section>
+
+    <!-- our javascript -->
+    <script>
+
+        // With Vue
+
+        const app = new Vue({
+            el: '#app',
+
+            data: {
+                name: 'Pankaj',
+                email: 'pankaj@proprofs.com',
+                username: 'pankajsharma_007',
+                text: ''
+            },
+
+            methods: {
+                celeberate: function () {
+                    if (this.text === '') {
+                        alert("We can't celeberate without name");
+                    }
+                    else {
+                        alert("Let's Celeberate !! " + this.text);
+                    }
+
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
